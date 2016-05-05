@@ -59,6 +59,8 @@
 		5008E53F1CC21AFC0032D188 /* gif_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 5008E5351CC21AFC0032D188 /* gif_7.png */; };
 		5008E5401CC21AFC0032D188 /* gif_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 5008E5361CC21AFC0032D188 /* gif_8.png */; };
 		5008E5411CC21AFC0032D188 /* gif_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 5008E5371CC21AFC0032D188 /* gif_9.png */; };
+		508E1EC91CDB408100BE013D /* LoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 508E1EC81CDB408100BE013D /* LoadingController.m */; };
+		508E1ECC1CDB418C00BE013D /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 508E1ECB1CDB418C00BE013D /* LoadingView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,10 @@
 		5008E5351CC21AFC0032D188 /* gif_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gif_7.png; sourceTree = "<group>"; };
 		5008E5361CC21AFC0032D188 /* gif_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gif_8.png; sourceTree = "<group>"; };
 		5008E5371CC21AFC0032D188 /* gif_9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gif_9.png; sourceTree = "<group>"; };
+		508E1EC71CDB408100BE013D /* LoadingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingController.h; sourceTree = "<group>"; };
+		508E1EC81CDB408100BE013D /* LoadingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingController.m; sourceTree = "<group>"; };
+		508E1ECA1CDB418C00BE013D /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		508E1ECB1CDB418C00BE013D /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +213,10 @@
 				5008E5281CC1F0EC0032D188 /* BasicAnimationController.m */,
 				5008E52A1CC219260032D188 /* KeyFrameAnimation.h */,
 				5008E52B1CC219260032D188 /* KeyFrameAnimation.m */,
+				508E1EC71CDB408100BE013D /* LoadingController.h */,
+				508E1EC81CDB408100BE013D /* LoadingController.m */,
+				508E1ECA1CDB418C00BE013D /* LoadingView.h */,
+				508E1ECB1CDB418C00BE013D /* LoadingView.m */,
 				5008E4BA1CC1CFCA0032D188 /* Main.storyboard */,
 				5008E4BD1CC1CFCA0032D188 /* Assets.xcassets */,
 				5008E4BF1CC1CFCA0032D188 /* LaunchScreen.storyboard */,
@@ -466,12 +476,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508E1EC91CDB408100BE013D /* LoadingController.m in Sources */,
 				5008E4E61CC1D1C50032D188 /* KCATransitonController.m in Sources */,
 				5008E5291CC1F0EC0032D188 /* BasicAnimationController.m in Sources */,
 				5008E4B91CC1CFCA0032D188 /* ViewController.m in Sources */,
 				5008E5261CC1D6AA0032D188 /* TimerAnimation.m in Sources */,
 				5008E4B61CC1CFCA0032D188 /* AppDelegate.m in Sources */,
 				5008E52C1CC219260032D188 /* KeyFrameAnimation.m in Sources */,
+				508E1ECC1CDB418C00BE013D /* LoadingView.m in Sources */,
 				5008E4B31CC1CFCA0032D188 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -700,6 +712,7 @@
 				5008E4DD1CC1CFCA0032D188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5008E4DE1CC1CFCA0032D188 /* Build configuration list for PBXNativeTarget "AnimationStudyTests" */ = {
 			isa = XCConfigurationList;
@@ -708,6 +721,7 @@
 				5008E4E01CC1CFCA0032D188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		5008E4E11CC1CFCA0032D188 /* Build configuration list for PBXNativeTarget "AnimationStudyUITests" */ = {
 			isa = XCConfigurationList;
@@ -716,6 +730,7 @@
 				5008E4E31CC1CFCA0032D188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

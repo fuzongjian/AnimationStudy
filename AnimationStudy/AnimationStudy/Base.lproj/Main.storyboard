@@ -68,10 +68,22 @@
                                                     <segue destination="tfL-Je-sZL" kind="push" id="D2N-Fy-N0X"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0K-U7-XC4">
+                                                <rect key="frame" x="0.0" y="160" width="600" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="tge-XJ-O1U"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title="Loading动画"/>
+                                                <connections>
+                                                    <segue destination="Gb7-NW-2HH" kind="push" id="nCM-vm-sVG"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="Ss5-mt-arY" firstAttribute="top" secondItem="rVe-60-YeC" secondAttribute="top" id="0uG-zR-BU6"/>
+                                            <constraint firstItem="t0K-U7-XC4" firstAttribute="top" secondItem="16d-OQ-y0R" secondAttribute="bottom" id="1tp-tp-mGn"/>
                                             <constraint firstItem="4Lo-xh-icZ" firstAttribute="top" secondItem="Ss5-mt-arY" secondAttribute="bottom" id="1y6-HO-3oA"/>
                                             <constraint firstItem="16d-OQ-y0R" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="3Xh-Wp-gmq"/>
                                             <constraint firstItem="4Lo-xh-icZ" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="4Ir-lG-MFU"/>
@@ -80,8 +92,10 @@
                                             <constraint firstAttribute="trailing" secondItem="4Lo-xh-icZ" secondAttribute="trailing" id="NVZ-V4-Vhp"/>
                                             <constraint firstAttribute="height" constant="1200" id="QHs-lc-Zv6"/>
                                             <constraint firstAttribute="trailing" secondItem="raa-6n-Zx5" secondAttribute="trailing" id="RaO-oh-ZS0"/>
+                                            <constraint firstAttribute="trailing" secondItem="t0K-U7-XC4" secondAttribute="trailing" id="Via-qL-6qb"/>
                                             <constraint firstItem="Ss5-mt-arY" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="gcb-5R-arA"/>
                                             <constraint firstItem="raa-6n-Zx5" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="mRZ-OA-ouP"/>
+                                            <constraint firstItem="t0K-U7-XC4" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="qLB-ke-MzP"/>
                                             <constraint firstAttribute="trailing" secondItem="16d-OQ-y0R" secondAttribute="trailing" id="qO3-m2-cF0"/>
                                             <constraint firstAttribute="trailing" secondItem="Ss5-mt-arY" secondAttribute="trailing" id="uKH-TY-KvP"/>
                                         </constraints>
@@ -108,7 +122,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1309" y="-563"/>
+            <point key="canvasLocation" x="-1681" y="-787"/>
+        </scene>
+        <!--Loading-->
+        <scene sceneID="AMx-yJ-zjL">
+            <objects>
+                <viewController id="Gb7-NW-2HH" customClass="LoadingController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="855-JY-edB"/>
+                        <viewControllerLayoutGuide type="bottom" id="IU8-8r-bh5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PfL-bo-lGH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tdU-mg-jP4">
+                                <rect key="frame" x="20" y="74" width="280" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="0jM-n0-qpb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonClicked:" destination="Gb7-NW-2HH" eventType="touchUpInside" id="ugz-4O-pBL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RDD-rO-wdl">
+                                <rect key="frame" x="300" y="74" width="280" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Hl6-LR-aHw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopButtonClicked:" destination="Gb7-NW-2HH" eventType="touchUpInside" id="ofc-tw-SL5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tdU-mg-jP4" firstAttribute="top" secondItem="855-JY-edB" secondAttribute="bottom" constant="10" id="7H3-Lg-TLF"/>
+                            <constraint firstItem="RDD-rO-wdl" firstAttribute="width" secondItem="tdU-mg-jP4" secondAttribute="width" id="MNX-Lx-KdA"/>
+                            <constraint firstItem="RDD-rO-wdl" firstAttribute="top" secondItem="855-JY-edB" secondAttribute="bottom" constant="10" id="O3S-SM-CSq"/>
+                            <constraint firstItem="RDD-rO-wdl" firstAttribute="leading" secondItem="tdU-mg-jP4" secondAttribute="trailing" id="eKh-yl-zjj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RDD-rO-wdl" secondAttribute="trailing" id="kiv-iJ-dEd"/>
+                            <constraint firstItem="tdU-mg-jP4" firstAttribute="leading" secondItem="PfL-bo-lGH" secondAttribute="leadingMargin" id="yMn-tK-QhL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Loading" id="Mvl-dM-hCC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mxp-74-g6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-873" y="-1128"/>
         </scene>
         <!--Key Frame Animation-->
         <scene sceneID="RuZ-dN-Y66">
@@ -156,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wW3-fh-8DV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-595" y="-1167"/>
+            <point key="canvasLocation" x="-591" y="-397"/>
         </scene>
         <!--Transiton Controller-->
         <scene sceneID="kDB-dQ-EYZ">
@@ -171,22 +236,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="F3z-7U-12x">
-                                <rect key="frame" x="150" y="150" width="300" height="300"/>
+                                <rect key="frame" x="225" y="84" width="150" height="150"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="6EJ-wB-eI3"/>
-                                    <constraint firstAttribute="height" constant="300" id="znd-qi-YZ8"/>
+                                    <constraint firstAttribute="width" constant="150" id="o2O-RS-M8d"/>
+                                    <constraint firstAttribute="height" constant="150" id="rgU-7v-qZG"/>
                                 </constraints>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="4xj-z5-bhc" appends="YES" id="xzR-WD-Kyj"/>
+                                </connections>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="15.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="j62-5Z-7CF">
+                                <rect key="frame" x="225" y="254" width="150" height="150"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="pGk-Om-jUh"/>
+                                    <constraint firstAttribute="width" constant="150" id="y8d-Co-tbn"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="RYH-aC-jrD" appends="YES" id="fGu-5M-wxs"/>
+                                    <outletCollection property="gestureRecognizers" destination="P3N-n7-BYE" appends="YES" id="AvG-uu-e84"/>
                                 </connections>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="F3z-7U-12x" firstAttribute="centerY" secondItem="tGc-Fo-k7H" secondAttribute="centerY" id="Imt-RE-eJq"/>
-                            <constraint firstItem="F3z-7U-12x" firstAttribute="centerX" secondItem="tGc-Fo-k7H" secondAttribute="centerX" id="OXZ-kg-ChX"/>
+                            <constraint firstItem="F3z-7U-12x" firstAttribute="top" secondItem="kyO-u7-BV8" secondAttribute="bottom" constant="20" id="1ZC-KA-0GX"/>
+                            <constraint firstItem="F3z-7U-12x" firstAttribute="centerX" secondItem="tGc-Fo-k7H" secondAttribute="centerX" id="Sq7-Kq-NUg"/>
+                            <constraint firstItem="j62-5Z-7CF" firstAttribute="top" secondItem="F3z-7U-12x" secondAttribute="bottom" constant="20" id="l70-Yz-ubR"/>
+                            <constraint firstItem="j62-5Z-7CF" firstAttribute="centerX" secondItem="tGc-Fo-k7H" secondAttribute="centerX" id="wiF-xN-55Z"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="lY9-n6-wJI" appends="YES" id="RTT-hy-Brl"/>
@@ -195,6 +274,7 @@
                     <navigationItem key="navigationItem" id="M63-6L-srg"/>
                     <connections>
                         <outlet property="ImageView" destination="F3z-7U-12x" id="pPw-x4-d1y"/>
+                        <outlet property="SecondImageView" destination="j62-5Z-7CF" id="JoS-ZY-SwD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fL9-sH-ui3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -208,8 +288,18 @@
                         <action selector="SwipeRight:" destination="eC2-ln-bm8" id="sZA-KE-M2d"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="RYH-aC-jrD">
+                    <connections>
+                        <action selector="UIViewAnimation_Swipe:" destination="eC2-ln-bm8" id="ZvZ-Xk-3EA"/>
+                    </connections>
+                </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="left" id="P3N-n7-BYE">
+                    <connections>
+                        <action selector="UIViewAnimation_Swipe:" destination="eC2-ln-bm8" id="JTz-Kb-KgE"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-595" y="-506"/>
+            <point key="canvasLocation" x="-724" y="395"/>
         </scene>
         <!--Timer Animation-->
         <scene sceneID="l2a-kC-wLE">
@@ -245,7 +335,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbO-xW-HdN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1424" y="285"/>
+            <point key="canvasLocation" x="-2022" y="287"/>
         </scene>
         <!--基本动画-->
         <scene sceneID="NPu-6j-hAG">
@@ -382,7 +472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOV-zx-bGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-780" y="302"/>
+            <point key="canvasLocation" x="-1372" y="338"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yca-rm-WW0">
@@ -398,11 +488,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NZa-pi-ld2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1905" y="-656"/>
+            <point key="canvasLocation" x="-2533" y="-688"/>
         </scene>
     </scenes>
     <resources>
         <image name="1.jpg" width="600" height="900"/>
+        <image name="15.jpg" width="500" height="749"/>
         <image name="16.jpg" width="570" height="800"/>
         <image name="gif_1.png" width="500" height="500"/>
         <image name="press-to-work" width="95" height="95"/>
