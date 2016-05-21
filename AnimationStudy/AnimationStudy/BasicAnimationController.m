@@ -10,6 +10,7 @@
 @interface BasicAnimationController ()
 @property (weak, nonatomic) IBOutlet UIImageView *WorkImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *PersonImageView;
+@property (weak, nonatomic) IBOutlet UILabel *shakeLable;
 @end
 @implementation BasicAnimationController
 
@@ -55,6 +56,15 @@
     animation.values = @[[NSValue valueWithCGPoint:point1],[NSValue valueWithCGPoint:point2],[NSValue valueWithCGPoint:point3],[NSValue valueWithCGPoint:point4],[NSValue valueWithCGPoint:point5]];
     [self.PersonImageView.layer addAnimation:animation forKey:@"animation_values"];
 }
+- (IBAction)shakeButtonClicked:(id)sender {
+    CAKeyframeAnimation * animation = [CAKeyframeAnimation animationWithKeyPath:@"transform.translation.x"];
+    CGFloat duration = 5;
+    animation.values = @[@(-duration),@(0),@(duration),@(0),@(-duration),@(0),@(duration),@(0)];
+    animation.duration = 0.3f;
+    animation.repeatCount = 1;
+    animation.removedOnCompletion = YES;
+    [_shakeLable.layer addAnimation:animation forKey:@"shake"];
+}
 /*---------------------------------------------基本动画--------------------------------------------------*/
 #pragma mark --- 旋转
 - (IBAction)animation_rotation:(id)sender{
@@ -97,7 +107,7 @@
     [self.PersonImageView.layer addAnimation:animation forKey:@"animation_position"];
 }
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
-    
+  
 }
 - (IBAction)animation_shadow:(id)sender{
     //阴影颜色

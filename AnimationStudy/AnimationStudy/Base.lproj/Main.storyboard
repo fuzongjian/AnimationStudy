@@ -441,12 +441,35 @@
                                     <action selector="animation_shadow:" destination="UG9-M7-B55" eventType="touchUpInside" id="X02-at-5AS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ja6-fA-4tA">
+                                <rect key="frame" x="4" y="422" width="70" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="1cD-ef-NLp"/>
+                                    <constraint firstAttribute="height" constant="40" id="nei-4i-2vL"/>
+                                </constraints>
+                                <state key="normal" title="shake"/>
+                                <connections>
+                                    <action selector="shakeButtonClicked:" destination="UG9-M7-B55" eventType="touchUpInside" id="PJm-jA-Ik3"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好好学习，天天向上！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXU-KS-BrC">
+                                <rect key="frame" x="200" y="523" width="200" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2uJ-Wg-QfU"/>
+                                    <constraint firstAttribute="width" constant="200" id="ImA-1F-2dF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="OXU-KS-BrC" firstAttribute="centerX" secondItem="1wZ-Hr-fsr" secondAttribute="centerX" id="0k0-d3-BGt"/>
                             <constraint firstItem="4dw-fG-VrZ" firstAttribute="top" secondItem="YU7-GJ-Mnb" secondAttribute="bottom" constant="8" id="6sB-z0-v3h"/>
                             <constraint firstItem="mzL-MO-ccc" firstAttribute="leading" secondItem="1wZ-Hr-fsr" secondAttribute="leadingMargin" constant="-20" id="7JG-aK-e0f"/>
                             <constraint firstItem="0ac-CL-hGV" firstAttribute="top" secondItem="4dw-fG-VrZ" secondAttribute="bottom" constant="10" id="87l-NL-kgS"/>
+                            <constraint firstItem="Pn0-VU-qg7" firstAttribute="top" secondItem="OXU-KS-BrC" secondAttribute="bottom" constant="37" id="FnY-MY-eHU"/>
                             <constraint firstItem="YU7-GJ-Mnb" firstAttribute="top" secondItem="1m2-6V-g0D" secondAttribute="bottom" constant="10" id="HU8-Nm-Nxa"/>
                             <constraint firstItem="0ac-CL-hGV" firstAttribute="leading" secondItem="1wZ-Hr-fsr" secondAttribute="leadingMargin" constant="-20" id="Iot-C5-s8m"/>
                             <constraint firstItem="6zG-J8-4FW" firstAttribute="top" secondItem="xt5-q8-OIo" secondAttribute="bottom" constant="41" id="JsN-fy-ozM"/>
@@ -454,10 +477,12 @@
                             <constraint firstItem="cTp-5P-KcV" firstAttribute="top" secondItem="0ac-CL-hGV" secondAttribute="bottom" constant="10" id="QHo-Ig-ymV"/>
                             <constraint firstItem="rul-S1-d9s" firstAttribute="leading" secondItem="1wZ-Hr-fsr" secondAttribute="leadingMargin" constant="-20" id="SzM-0f-LFq"/>
                             <constraint firstItem="mzL-MO-ccc" firstAttribute="top" secondItem="rul-S1-d9s" secondAttribute="bottom" constant="10" id="TeF-Fp-jB7"/>
+                            <constraint firstItem="Ja6-fA-4tA" firstAttribute="leading" secondItem="1wZ-Hr-fsr" secondAttribute="leadingMargin" constant="-16" id="UiW-Av-gdN"/>
                             <constraint firstItem="4dw-fG-VrZ" firstAttribute="leading" secondItem="1wZ-Hr-fsr" secondAttribute="leadingMargin" constant="-20" id="WGi-AC-QZO"/>
                             <constraint firstItem="cTp-5P-KcV" firstAttribute="leading" secondItem="1wZ-Hr-fsr" secondAttribute="leadingMargin" constant="-20" id="WIr-0x-bo9"/>
                             <constraint firstItem="xt5-q8-OIo" firstAttribute="centerX" secondItem="1wZ-Hr-fsr" secondAttribute="centerX" id="iRs-rq-k6I"/>
                             <constraint firstItem="xt5-q8-OIo" firstAttribute="top" secondItem="ohc-0b-HwO" secondAttribute="bottom" constant="20" id="kO2-kv-0lK"/>
+                            <constraint firstItem="Ja6-fA-4tA" firstAttribute="top" secondItem="mzL-MO-ccc" secondAttribute="bottom" constant="10" id="r6v-40-To5"/>
                             <constraint firstItem="YU7-GJ-Mnb" firstAttribute="leading" secondItem="1wZ-Hr-fsr" secondAttribute="leadingMargin" constant="-20" id="rEX-hJ-aLT"/>
                             <constraint firstItem="rul-S1-d9s" firstAttribute="top" secondItem="cTp-5P-KcV" secondAttribute="bottom" constant="10" id="tf9-eb-BV7"/>
                             <constraint firstItem="6zG-J8-4FW" firstAttribute="centerX" secondItem="1wZ-Hr-fsr" secondAttribute="centerX" id="zCd-FZ-2Lq"/>
@@ -468,11 +493,12 @@
                     <connections>
                         <outlet property="PersonImageView" destination="6zG-J8-4FW" id="La9-fz-qJ5"/>
                         <outlet property="WorkImageView" destination="xt5-q8-OIo" id="sNr-9y-vR8"/>
+                        <outlet property="shakeLable" destination="OXU-KS-BrC" id="szR-Qu-Lrc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WOV-zx-bGQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1372" y="338"/>
+            <point key="canvasLocation" x="-1442" y="334"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yca-rm-WW0">
