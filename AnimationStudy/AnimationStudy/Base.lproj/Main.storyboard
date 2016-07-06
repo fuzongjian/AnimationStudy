@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qqp-lm-Kcf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="qqp-lm-Kcf">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -79,6 +79,17 @@
                                                     <segue destination="Gb7-NW-2HH" kind="push" id="nCM-vm-sVG"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jAL-gZ-4cy">
+                                                <rect key="frame" x="0.0" y="200" width="600" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="eXH-fI-DtT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <state key="normal" title=" 波浪动画"/>
+                                                <connections>
+                                                    <segue destination="jGc-Fa-s2u" kind="push" id="sNg-Ug-Swa"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -88,15 +99,18 @@
                                             <constraint firstItem="16d-OQ-y0R" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="3Xh-Wp-gmq"/>
                                             <constraint firstItem="4Lo-xh-icZ" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="4Ir-lG-MFU"/>
                                             <constraint firstItem="raa-6n-Zx5" firstAttribute="top" secondItem="4Lo-xh-icZ" secondAttribute="bottom" id="Dxw-QP-Mui"/>
+                                            <constraint firstItem="jAL-gZ-4cy" firstAttribute="top" secondItem="t0K-U7-XC4" secondAttribute="bottom" id="N0y-m9-eRb"/>
                                             <constraint firstItem="16d-OQ-y0R" firstAttribute="top" secondItem="raa-6n-Zx5" secondAttribute="bottom" id="NQE-8L-5Ik"/>
                                             <constraint firstAttribute="trailing" secondItem="4Lo-xh-icZ" secondAttribute="trailing" id="NVZ-V4-Vhp"/>
                                             <constraint firstAttribute="height" constant="1200" id="QHs-lc-Zv6"/>
                                             <constraint firstAttribute="trailing" secondItem="raa-6n-Zx5" secondAttribute="trailing" id="RaO-oh-ZS0"/>
                                             <constraint firstAttribute="trailing" secondItem="t0K-U7-XC4" secondAttribute="trailing" id="Via-qL-6qb"/>
+                                            <constraint firstAttribute="trailing" secondItem="jAL-gZ-4cy" secondAttribute="trailing" id="ZHo-gV-9Gx"/>
                                             <constraint firstItem="Ss5-mt-arY" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="gcb-5R-arA"/>
                                             <constraint firstItem="raa-6n-Zx5" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="mRZ-OA-ouP"/>
                                             <constraint firstItem="t0K-U7-XC4" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="qLB-ke-MzP"/>
                                             <constraint firstAttribute="trailing" secondItem="16d-OQ-y0R" secondAttribute="trailing" id="qO3-m2-cF0"/>
+                                            <constraint firstItem="jAL-gZ-4cy" firstAttribute="leading" secondItem="rVe-60-YeC" secondAttribute="leading" id="uIt-AW-6RA"/>
                                             <constraint firstAttribute="trailing" secondItem="Ss5-mt-arY" secondAttribute="trailing" id="uKH-TY-KvP"/>
                                         </constraints>
                                     </view>
@@ -174,6 +188,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxp-74-g6D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-873" y="-1128"/>
+        </scene>
+        <!--Wave View Controller-->
+        <scene sceneID="MSh-LM-lGP">
+            <objects>
+                <viewController id="jGc-Fa-s2u" customClass="WaveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dlj-nW-Vdc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hsn-x9-aNr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ekE-uI-LFu">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="icI-oA-dn1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0N0-2v-3g5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-773" y="-794"/>
         </scene>
         <!--Key Frame Animation-->
         <scene sceneID="RuZ-dN-Y66">

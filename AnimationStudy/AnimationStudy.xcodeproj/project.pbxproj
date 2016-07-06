@@ -61,6 +61,8 @@
 		5008E5411CC21AFC0032D188 /* gif_9.png in Resources */ = {isa = PBXBuildFile; fileRef = 5008E5371CC21AFC0032D188 /* gif_9.png */; };
 		508E1EC91CDB408100BE013D /* LoadingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 508E1EC81CDB408100BE013D /* LoadingController.m */; };
 		508E1ECC1CDB418C00BE013D /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 508E1ECB1CDB418C00BE013D /* LoadingView.m */; };
+		74FBD0EB1D2D2B5500A5F898 /* WaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBD0EA1D2D2B5500A5F898 /* WaveViewController.m */; };
+		74FBD0EE1D2D2C2D00A5F898 /* WaveView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74FBD0ED1D2D2C2D00A5F898 /* WaveView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,10 @@
 		508E1EC81CDB408100BE013D /* LoadingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingController.m; sourceTree = "<group>"; };
 		508E1ECA1CDB418C00BE013D /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		508E1ECB1CDB418C00BE013D /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		74FBD0E91D2D2B5500A5F898 /* WaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveViewController.h; sourceTree = "<group>"; };
+		74FBD0EA1D2D2B5500A5F898 /* WaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveViewController.m; sourceTree = "<group>"; };
+		74FBD0EC1D2D2C2D00A5F898 /* WaveView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveView.h; sourceTree = "<group>"; };
+		74FBD0ED1D2D2C2D00A5F898 /* WaveView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +223,10 @@
 				508E1EC81CDB408100BE013D /* LoadingController.m */,
 				508E1ECA1CDB418C00BE013D /* LoadingView.h */,
 				508E1ECB1CDB418C00BE013D /* LoadingView.m */,
+				74FBD0E91D2D2B5500A5F898 /* WaveViewController.h */,
+				74FBD0EA1D2D2B5500A5F898 /* WaveViewController.m */,
+				74FBD0EC1D2D2C2D00A5F898 /* WaveView.h */,
+				74FBD0ED1D2D2C2D00A5F898 /* WaveView.m */,
 				5008E4BA1CC1CFCA0032D188 /* Main.storyboard */,
 				5008E4BD1CC1CFCA0032D188 /* Assets.xcassets */,
 				5008E4BF1CC1CFCA0032D188 /* LaunchScreen.storyboard */,
@@ -479,12 +489,14 @@
 				508E1EC91CDB408100BE013D /* LoadingController.m in Sources */,
 				5008E4E61CC1D1C50032D188 /* KCATransitonController.m in Sources */,
 				5008E5291CC1F0EC0032D188 /* BasicAnimationController.m in Sources */,
+				74FBD0EB1D2D2B5500A5F898 /* WaveViewController.m in Sources */,
 				5008E4B91CC1CFCA0032D188 /* ViewController.m in Sources */,
 				5008E5261CC1D6AA0032D188 /* TimerAnimation.m in Sources */,
 				5008E4B61CC1CFCA0032D188 /* AppDelegate.m in Sources */,
 				5008E52C1CC219260032D188 /* KeyFrameAnimation.m in Sources */,
 				508E1ECC1CDB418C00BE013D /* LoadingView.m in Sources */,
 				5008E4B31CC1CFCA0032D188 /* main.m in Sources */,
+				74FBD0EE1D2D2C2D00A5F898 /* WaveView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
