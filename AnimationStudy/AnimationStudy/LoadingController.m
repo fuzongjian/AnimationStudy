@@ -14,9 +14,9 @@
     self.view.backgroundColor = [UIColor whiteColor];
 }
 - (IBAction)startButtonClicked:(id)sender {
-    [LoadingView showLoadingToView:self.view];
+    [LoadingView showOnView:self.view type:LoadingTypeCircle];
 }
 - (IBAction)stopButtonClicked:(id)sender {
-    [LoadingView hidenLoadingFromView:self.view];
+    [LoadingView hide];
 }
 @end

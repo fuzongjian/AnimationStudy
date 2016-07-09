@@ -7,8 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+typedef NS_ENUM(NSInteger,LoadingType){
+    LoadingTypeCircle,
+    LoadingTypeImage,
+    LoadingTypeThreeDot,
+    LoadingTypeLine,
+};
 @interface LoadingView : UIView
-+ (void)showLoadingToView:(UIView *)view;
-+ (void)hidenLoadingFromView:(UIView *)view;
+//至于控制器view之上
++ (void)showOnView:(UIView *)view type:(LoadingType)loadingType;
+//置于window之上，
++ (void)showLoadingViewType:(LoadingType)loadingType userInteractionEnabled:(BOOL)enable;
++ (void)hide;
 @end
