@@ -16,15 +16,20 @@ static LoadingView * loadingView;
 - (instancetype)initWithFrame:(CGRect)frame type:(LoadingType)loadingType{
     if (self = [super initWithFrame:frame]) {
         switch (loadingType) {
-            case LoadingTypeCircle:
-//                [self animation_circle];
-                [self animation_threedot];
+            case LoadingTypeCircleDot:
+                [self animation_circleDot];
                 break;
             case LoadingTypeImage:
                 [self animation_image];
                 break;
             case LoadingTypeThreeDot:
-                [self animation_threedot];
+                [self animation_threeDot];
+                break;
+            case LoadingTypeCircleDots:
+                [self animation_circleDots];
+                break;
+            case LoadingTypeLine:
+                [self animation_line];
                 break;
             default:
                 break;
@@ -56,7 +61,62 @@ static LoadingView * loadingView;
         [loadingView removeFromSuperview];
     }
 }
-- (void)animation_threedot{
+- (void)animation_line{
+    self.replicatorLayer.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1].CGColor;
+    [self.layer addSublayer:self.replicatorLayer];
+    
+    CGFloat count = 3;
+    CGFloat lineH = 50;
+    CGFloat lineMarginX = 40;
+    CGFloat lineInter = 10;
+    CGFloat lineW = 5;
+    
+    CALayer * lineLayer = [CALayer layer];
+    lineLayer.bounds = CGRectMake(0, 0, lineW, lineH);
+    lineLayer.position = CGPointMake(lineMarginX, self.replicatorLayer.frame.size.height - 25);
+    lineLayer.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.6].CGColor;
+    [self.replicatorLayer addSublayer:lineLayer];
+    self.replicatorLayer.instanceCount = count;
+    // 每隔layer的间距
+    self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(lineInter, 0, 0);
+    
+    CABasicAnimation * basicAnimation = [CABasicAnimation animationWithKeyPath:@"position.y"];
+    basicAnimation.toValue = @(lineH * 0.4);
+    basicAnimation.duration = 0.5;
+    // 原路返回动画一遍（设置动画自动反转即怎么去怎么回来）
+    basicAnimation.autoreverses = YES;
+    basicAnimation.repeatCount = MAXFLOAT;
+    [lineLayer addAnimation:basicAnimation forKey:nil];
+    self.replicatorLayer.instanceDelay = 0.5/count;
+}
+
+- (void)animation_circleDots{
+    self.replicatorLayer.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.2].CGColor;
+    [self.layer addSublayer:self.replicatorLayer];
+    
+    CALayer * dotLayer = [CALayer layer];
+    dotLayer.bounds = CGRectMake(0, 0, 10, 10);
+    dotLayer.position = CGPointMake(50, 20);
+    dotLayer.backgroundColor = [UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:0.6].CGColor;
+    dotLayer.cornerRadius = 5;
+    dotLayer.masksToBounds = YES;
+    [self.replicatorLayer addSublayer:dotLayer];
+    
+    CGFloat count = 100.0;
+    self.replicatorLayer.instanceCount = count;
+    self.replicatorLayer.instanceTransform  = CATransform3DMakeRotation(2*M_PI/count, 0, 0, 1);
+    
+    CABasicAnimation * basicAnimation = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+    basicAnimation.duration = 1.0;
+    basicAnimation.fromValue = @1;
+    basicAnimation.toValue = @0.1;
+    basicAnimation.repeatCount = MAXFLOAT;
+    [dotLayer addAnimation:basicAnimation forKey:nil];
+    
+    self.replicatorLayer.instanceDelay = 1.0/count;
+    dotLayer.transform = CATransform3DMakeScale(0.01, 0.01, 0.01);
+}
+- (void)animation_threeDot{
     self.replicatorLayer.backgroundColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.5].CGColor;
     [self.layer addSublayer:self.replicatorLayer];
     
@@ -69,7 +129,7 @@ static LoadingView * loadingView;
     [self.replicatorLayer addSublayer:dotLayer];
     
     self.replicatorLayer.instanceCount = 3;// 复制2个layer ＋ 本身 ＝ 3个
-    // 拷贝副本的3D变换
+    // 拷贝副本的3D变换，每隔layer的间距
     self.replicatorLayer.instanceTransform = CATransform3DMakeTranslation(self.replicatorLayer.frame.size.width/3.0, 0, 0);
     
     
@@ -81,12 +141,12 @@ static LoadingView * loadingView;
     [dotLayer addAnimation:basicAnimation forKey:nil];
     
     self.replicatorLayer.instanceDelay = 0.8/3;// 每隔时间出现一个layer
-    self.replicatorLayer.instanceGreenOffset = -0.03; //颜色递减值
+    self.replicatorLayer.instanceGreenOffset = -0.1; //颜色递减值
 //    self.replicatorLayer.instanceRedOffset= 0.02;
     
-    dotLayer.transform = CATransform3DMakeScale(0, 0, 0);
+    dotLayer.transform = CATransform3DMakeScale(0, 0, 0);//x、y、z放大缩小的倍数
 }
-- (void)animation_circle{
+- (void)animation_circleDot{
     
     self.replicatorLayer.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.2].CGColor;
     [self.layer addSublayer:self.replicatorLayer];
@@ -160,6 +220,7 @@ static LoadingView * loadingView;
     
     [loadingLayer addAnimation:returnAnimation(100) forKey:nil];
 }
+// 懒加载
 - (CAReplicatorLayer *)replicatorLayer{
     if (_replicatorLayer == nil) {
         _replicatorLayer =[CAReplicatorLayer layer];

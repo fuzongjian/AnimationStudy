@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 typedef NS_ENUM(NSInteger,LoadingType){
-    LoadingTypeCircle,
-    LoadingTypeImage,
     LoadingTypeThreeDot,
+    LoadingTypeCircleDot,
+    LoadingTypeCircleDots,
+    LoadingTypeImage,
     LoadingTypeLine,
 };
 @interface LoadingView : UIView
