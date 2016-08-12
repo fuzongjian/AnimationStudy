@@ -15,11 +15,12 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
+//    [LoadingView showOnView:self.view type:6];
 }
 - (IBAction)startButtonClicked:(id)sender {
     [self timerMethod];
     [self.timer fire];
-//    [LoadingView showOnView:self.view type:0];
+    [LoadingView showOnView:self.view type:0];
 }
 - (IBAction)stopButtonClicked:(id)sender {
     [self.timer invalidate];
@@ -29,7 +30,7 @@
 
 - (void)timerMethod{
     static NSInteger count = 0;
-    if (count > 4) {
+    if (count > 6) {
         count = 0;
     }
     [LoadingView showOnView:self.view type:count];

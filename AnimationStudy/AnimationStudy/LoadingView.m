@@ -31,6 +31,12 @@ static LoadingView * loadingView;
             case LoadingTypeLine:
                 [self animation_line];
                 break;
+            case LoadingTypeTriangle:
+                [self animation_triangle];
+                break;
+            case LoadingTypeQurate:
+                [self animation_qurare];
+                break;
             default:
                 break;
         }
@@ -60,6 +66,105 @@ static LoadingView * loadingView;
     if (loadingView) {
         [loadingView removeFromSuperview];
     }
+}
+- (void)animation_qurare{
+    CABasicAnimation * (^getAnimation)(void) = ^{
+        CABasicAnimation *basic = [CABasicAnimation animationWithKeyPath:@"transform"];
+        basic.fromValue         = [NSValue valueWithCATransform3D:CATransform3DScale(CATransform3DIdentity, 1, 1, 0)];
+        basic.toValue           = [NSValue valueWithCATransform3D:CATransform3DScale(CATransform3DIdentity, 0.2, 0.2, 0)];
+        basic.duration          = 0.8;
+        basic.repeatCount       = HUGE;
+        basic.autoreverses      = YES;
+        return basic;
+    };
+    CABasicAnimation * (^getSecondAnimation)(void) = ^{
+        CABasicAnimation *alpha = [CABasicAnimation animationWithKeyPath:@"opacity"];
+        alpha.fromValue         = @(1.0);
+        alpha.toValue           = @(0.0);
+        return alpha;
+    };
+    CALayer * (^getLayer)(void) = ^{
+        /*        基本间距及模板层的创建         */
+        NSInteger column                    = 3;
+        CGFloat between                     = 5.0;
+        CGFloat radius                      = (50 - between * (column - 1))/column;
+        CAShapeLayer *shape                 = [CAShapeLayer layer];
+        shape.frame                         = CGRectMake(0, 0, radius, radius);
+        shape.path                          = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, radius, radius)].CGPath;
+        shape.fillColor                     = [UIColor redColor].CGColor;
+        
+        
+        /*        创建动画组         */
+        CAAnimationGroup *animationGroup    = [CAAnimationGroup animation];
+        animationGroup.animations           = @[getAnimation(), getSecondAnimation()];
+        animationGroup.duration             = 0.8;
+        animationGroup.autoreverses         = YES;
+        animationGroup.repeatCount          = HUGE;
+        [shape addAnimation:animationGroup forKey:@"groupAnimation"];
+        
+        
+        /*        创建第一行的动画克隆层对象         */
+        CAReplicatorLayer *replicatorLayerX = [CAReplicatorLayer layer];
+        replicatorLayerX.frame              = CGRectMake(0, 0, 100, 100);
+        replicatorLayerX.instanceDelay      = 0.3;
+        replicatorLayerX.instanceCount      = column;
+        replicatorLayerX.instanceTransform  = CATransform3DTranslate(CATransform3DIdentity, radius+between, 0, 0);
+        [replicatorLayerX addSublayer:shape];
+        
+        
+        /*        创建3行的动画克隆层对象         */
+        CAReplicatorLayer *replicatorLayerY = [CAReplicatorLayer layer];
+        replicatorLayerY.frame              = CGRectMake(0, 0, 50, 50);
+        replicatorLayerY.instanceDelay      = 0.3;
+        replicatorLayerY.instanceCount      = column;
+        
+        
+        /*        给CAReplicatorLayer对象的子层添加转换规则 这里决定了子层的布局         */
+        replicatorLayerY.instanceTransform  = CATransform3DTranslate(CATransform3DIdentity, 0, radius+between, 0);
+        [replicatorLayerY addSublayer:replicatorLayerX];
+        return replicatorLayerY;
+    };
+    CALayer * layer = getLayer();
+    layer.position = CGPointMake(CGRectGetWidth(self.frame)/2, CGRectGetHeight(self.frame)/2);
+    [self.layer addSublayer:layer];
+}
+- (void)animation_triangle{
+    
+    //模板层初始化
+    CGFloat radius = 100.0/6.0;
+    CGFloat transX = 100 - radius;
+    CAShapeLayer * dotLayer = [CAShapeLayer layer];
+    dotLayer.frame = CGRectMake(0, 0, radius, radius);
+    dotLayer.path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(0, 0, radius, radius)].CGPath;
+    dotLayer.strokeColor = [UIColor redColor].CGColor;
+    dotLayer.fillColor = [UIColor redColor].CGColor;
+    dotLayer.lineWidth = 1;
+    CABasicAnimation * (^getAnimation)(void) = ^{
+        
+        CABasicAnimation * animation = [CABasicAnimation animationWithKeyPath:@"transform"];
+        CATransform3D fromValue = CATransform3DRotate(CATransform3DIdentity, 0.0, 0.0, 0.0, 0.0);
+        animation.fromValue         = [NSValue valueWithCATransform3D:fromValue];
+        CATransform3D toValue   = CATransform3DTranslate(CATransform3DIdentity, 100 - 100 / 6.0, 0.0, 0.0);
+        toValue                 = CATransform3DRotate(toValue,2*M_PI/3.0, 0.0, 0.0, 1.0);
+        animation.toValue           = [NSValue valueWithCATransform3D:toValue];
+        animation.autoreverses      = NO;
+        animation.repeatCount       = HUGE;
+        animation.timingFunction    = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+        animation.duration          = 0.8;
+        return  animation;
+    };
+    [dotLayer addAnimation:getAnimation() forKey:@"rotateAnimation"];
+    CAReplicatorLayer * replicatorLayer = [CAReplicatorLayer layer];
+    replicatorLayer.frame = CGRectMake(0, 0, radius, radius);
+    replicatorLayer.instanceCount = 3;
+    replicatorLayer.instanceDelay = 0.0;
+    CATransform3D trans3D = CATransform3DIdentity;
+    trans3D = CATransform3DTranslate(trans3D, transX, 0, 0);
+    trans3D = CATransform3DRotate(trans3D, 120*M_PI/180.0, 0.0, 0.0, 1.0);
+    replicatorLayer.instanceTransform = trans3D;
+    [replicatorLayer addSublayer:dotLayer];
+    [self.layer addSublayer:replicatorLayer];
+    
 }
 - (void)animation_line{
     self.replicatorLayer.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.1].CGColor;
